@@ -44,7 +44,17 @@
       "expo-localization",
       [
         "expo-local-authentication",
-        { "faceIDPermission": "Unlock SKY with Face ID." }
+        {
+          "faceIDPermission": "Unlock SKY with Face ID."
+        }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Scan SKY QR codes.",
+          "microphonePermission": false,
+          "recordAudioAndroid": false
+        }
       ]
     ],
     "experiments": {

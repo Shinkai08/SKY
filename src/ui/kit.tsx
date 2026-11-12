@@ -29,13 +29,13 @@ const sizes = {
   tiny: { fontSize: 11 },
 }
 
-export function Txt({ children, v = 'body', tone = 'ink', num, bold, center, style, lines }: {
+export function Txt({ children, v = 'body', tone = 'ink', num, bold, center, style, lines, selectable }: {
   children?: ReactNode; v?: keyof typeof sizes; tone?: Tone; num?: boolean; bold?: boolean; center?: boolean
-  style?: StyleProp<TextStyle>; lines?: number
+  style?: StyleProp<TextStyle>; lines?: number; selectable?: boolean
 }) {
   const c = useColors()
   return (
-    <Text numberOfLines={lines} style={[sizes[v], { color: toneColor(c, tone) }, num && styles.num, bold && { fontWeight: '700' }, center && { textAlign: 'center' }, style]}>
+    <Text numberOfLines={lines} selectable={selectable} style={[sizes[v], { color: toneColor(c, tone) }, num && styles.num, bold && { fontWeight: '700' }, center && { textAlign: 'center' }, style]}>
       {children}
     </Text>
   )
