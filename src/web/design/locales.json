@@ -1,0 +1,823 @@
+{
+  "locales": [
+    "en",
+    "nl",
+    "es",
+    "zh-CN",
+    "zh-TW"
+  ],
+  "strings": {
+    "home": [
+      "Home",
+      "Home",
+      "Inicio",
+      "首页",
+      "首頁"
+    ],
+    "markets": [
+      "Markets",
+      "Markten",
+      "Mercados",
+      "行情",
+      "行情"
+    ],
+    "trade": [
+      "Trade",
+      "Handelen",
+      "Operar",
+      "交易",
+      "交易"
+    ],
+    "assets": [
+      "Assets",
+      "Vermogen",
+      "Activos",
+      "资产",
+      "資產"
+    ],
+    "demo": [
+      "Demo account",
+      "Demoaccount",
+      "Cuenta demo",
+      "模拟账户",
+      "模擬帳戶"
+    ],
+    "hello": [
+      "A clearer view.",
+      "Meer overzicht.",
+      "Una visión más clara.",
+      "从容观市，清晰决策",
+      "從容觀市，清晰決策"
+    ],
+    "helloSub": [
+      "Your portfolio. Your next move.",
+      "Je portefeuille. Je volgende stap.",
+      "Tu cartera. Tu próximo paso.",
+      "资产与市场，尽在掌握",
+      "資產與市場，盡在掌握"
+    ],
+    "marketTitle": [
+      "Every market. One view.",
+      "Alle markten in beeld.",
+      "Todos los mercados, a tu alcance.",
+      "纵览市场，发现机遇",
+      "縱覽市場，發現機遇"
+    ],
+    "marketSub": [
+      "Explore prices, trends and possibilities.",
+      "Ontdek koersen, trends en kansen.",
+      "Explora precios, tendencias y oportunidades.",
+      "追踪价格、趋势与市场动态",
+      "追蹤價格、趨勢與市場動態"
+    ],
+    "assetTitle": [
+      "Everything in balance.",
+      "Alles in balans.",
+      "Todo en equilibrio.",
+      "每笔资产，清晰有序",
+      "每筆資產，清晰有序"
+    ],
+    "assetSub": [
+      "A clear picture of your funds.",
+      "Helder inzicht in je vermogen.",
+      "Una visión clara de tus fondos.",
+      "余额、持仓与资金流向",
+      "餘額、持倉與資金流向"
+    ],
+    "equity": [
+      "Total equity",
+      "Totaal vermogen",
+      "Patrimonio total",
+      "总资产估值",
+      "總資產估值"
+    ],
+    "today": [
+      "Today",
+      "Vandaag",
+      "Hoy",
+      "今日收益",
+      "今日收益"
+    ],
+    "available": [
+      "Available",
+      "Beschikbaar",
+      "Disponible",
+      "可用余额",
+      "可用餘額"
+    ],
+    "margin": [
+      "Margin used",
+      "Gebruikte marge",
+      "Margen utilizado",
+      "占用保证金",
+      "佔用保證金"
+    ],
+    "pnl": [
+      "Unrealized P&L",
+      "Ongerealiseerd resultaat",
+      "Ganancias no realizadas",
+      "未实现盈亏",
+      "未實現盈虧"
+    ],
+    "deposit": [
+      "Deposit",
+      "Storten",
+      "Depositar",
+      "充值",
+      "充幣"
+    ],
+    "withdraw": [
+      "Withdraw",
+      "Opnemen",
+      "Retirar",
+      "提现",
+      "提幣"
+    ],
+    "transfer": [
+      "Transfer",
+      "Overboeken",
+      "Transferir",
+      "划转",
+      "劃轉"
+    ],
+    "vip": [
+      "The SKY experience",
+      "De SKY-ervaring",
+      "La experiencia SKY",
+      "悦享 SKY",
+      "悅享 SKY"
+    ],
+    "vipSub": [
+      "More possibilities. Less friction.",
+      "Meer mogelijkheden. Minder gedoe.",
+      "Más posibilidades. Menos límites.",
+      "进阶体验，从这里开始",
+      "進階體驗，從這裡開始"
+    ],
+    "fees": [
+      "Lower fees",
+      "Lagere kosten",
+      "Menos comisiones",
+      "费率优惠",
+      "費率優惠"
+    ],
+    "support": [
+      "Priority support",
+      "Snellere hulp",
+      "Atención preferente",
+      "专属服务",
+      "專屬服務"
+    ],
+    "benefits": [
+      "Explore benefits",
+      "Bekijk voordelen",
+      "Ver ventajas",
+      "了解权益",
+      "了解權益"
+    ],
+    "quick": [
+      "Your shortcuts",
+      "Snel geregeld",
+      "Accesos rápidos",
+      "常用功能",
+      "常用功能"
+    ],
+    "futures": [
+      "Futures",
+      "Futures",
+      "Futuros",
+      "合约交易",
+      "合約交易"
+    ],
+    "watchlist": [
+      "Watchlist",
+      "Favorieten",
+      "Favoritos",
+      "自选行情",
+      "自選行情"
+    ],
+    "security": [
+      "Security",
+      "Beveiliging",
+      "Seguridad",
+      "安全中心",
+      "安全中心"
+    ],
+    "help": [
+      "Support",
+      "Hulp",
+      "Ayuda",
+      "获取帮助",
+      "獲取幫助"
+    ],
+    "pulse": [
+      "Market pulse",
+      "Marktbeeld",
+      "Pulso del mercado",
+      "市场脉搏",
+      "市場脈搏"
+    ],
+    "all": [
+      "View all",
+      "Bekijk alles",
+      "Ver todo",
+      "查看全部",
+      "查看全部"
+    ],
+    "crypto": [
+      "Crypto",
+      "Crypto",
+      "Cripto",
+      "加密货币",
+      "加密貨幣"
+    ],
+    "tradfi": [
+      "TradFi",
+      "TradFi",
+      "TradFi",
+      "TradFi",
+      "TradFi"
+    ],
+    "commodities": [
+      "Commodities",
+      "Grondstoffen",
+      "Materias primas",
+      "大宗商品",
+      "大宗商品"
+    ],
+    "onchain": [
+      "On-chain",
+      "On-chain",
+      "En cadena",
+      "链上",
+      "鏈上"
+    ],
+    "gold": [
+      "Gold",
+      "Goud",
+      "Oro",
+      "黄金",
+      "黃金"
+    ],
+    "name": [
+      "Asset",
+      "Activum",
+      "Activo",
+      "资产名称",
+      "資產名稱"
+    ],
+    "price": [
+      "Price",
+      "Koers",
+      "Precio",
+      "最新价格",
+      "最新價格"
+    ],
+    "change": [
+      "24h change",
+      "24u wijziging",
+      "Cambio 24 h",
+      "24h 涨跌",
+      "24h 漲跌"
+    ],
+    "volume": [
+      "24h volume",
+      "24u volume",
+      "Volumen 24 h",
+      "24h 成交额",
+      "24h 成交額"
+    ],
+    "trend": [
+      "7-day trend",
+      "Trend 7 dagen",
+      "Tendencia 7 días",
+      "7日走势",
+      "7日走勢"
+    ],
+    "search": [
+      "Search markets",
+      "Zoek een markt",
+      "Buscar mercados",
+      "搜索市场",
+      "搜尋市場"
+    ],
+    "gainers": [
+      "Top gainer",
+      "Sterkste stijger",
+      "Mayor subida",
+      "涨幅领先",
+      "漲幅領先"
+    ],
+    "popular": [
+      "Most traded",
+      "Meest verhandeld",
+      "Más negociado",
+      "热门交易",
+      "熱門交易"
+    ],
+    "activity": [
+      "Market volume",
+      "Marktvolume",
+      "Volumen del mercado",
+      "市场成交额",
+      "市場成交額"
+    ],
+    "allAssets": [
+      "All assets",
+      "Alle activa",
+      "Todos los activos",
+      "全部资产",
+      "全部資產"
+    ],
+    "spot": [
+      "Spot",
+      "Spot",
+      "Al contado",
+      "现货",
+      "現貨"
+    ],
+    "perpetual": [
+      "Perpetual",
+      "Perpetual",
+      "Perpetuo",
+      "永续",
+      "永續"
+    ],
+    "filter": [
+      "Filter",
+      "Filter",
+      "Filtrar",
+      "筛选",
+      "篩選"
+    ],
+    "funds": [
+      "Funds",
+      "Saldo",
+      "Fondos",
+      "资金余额",
+      "資金餘額"
+    ],
+    "holdings": [
+      "Holdings",
+      "Bezittingen",
+      "Tenencias",
+      "资产明细",
+      "資產明細"
+    ],
+    "hideZero": [
+      "Hide zero balances",
+      "Verberg nulsaldi",
+      "Ocultar saldos cero",
+      "隐藏零余额",
+      "隱藏零餘額"
+    ],
+    "locked": [
+      "In use",
+      "In gebruik",
+      "En uso",
+      "占用 / 冻结",
+      "佔用 / 凍結"
+    ],
+    "total": [
+      "Total balance",
+      "Totaal saldo",
+      "Saldo total",
+      "资金总额",
+      "資金總額"
+    ],
+    "asset": [
+      "Asset",
+      "Munt",
+      "Moneda",
+      "币种",
+      "幣種"
+    ],
+    "network": [
+      "Choose a network",
+      "Kies een netwerk",
+      "Elige una red",
+      "选择网络",
+      "選擇網路"
+    ],
+    "btcNote": [
+      "For Bitcoin, select BTC above.",
+      "Kies hierboven BTC voor Bitcoin.",
+      "Para Bitcoin, selecciona BTC arriba.",
+      "BTC 网络需先切换至 BTC 币种",
+      "BTC 網路需先切換至 BTC 幣種"
+    ],
+    "demoAddress": [
+      "Get demo address",
+      "Demo-adres ophalen",
+      "Obtener dirección demo",
+      "获取模拟地址",
+      "取得模擬地址"
+    ],
+    "demoNote": [
+      "Demo funds cannot be withdrawn.",
+      "Demogeld kan niet worden opgenomen.",
+      "Los fondos demo no se pueden retirar.",
+      "模拟资金不可提现",
+      "模擬資金不可提領"
+    ],
+    "recent": [
+      "Recent activity",
+      "Recente activiteit",
+      "Actividad reciente",
+      "最近记录",
+      "最近紀錄"
+    ],
+    "demoDeposit": [
+      "Demo deposit",
+      "Demostorting",
+      "Depósito demo",
+      "模拟充值",
+      "模擬充值"
+    ],
+    "internal": [
+      "Internal transfer",
+      "Interne overboeking",
+      "Transferencia interna",
+      "内部划转",
+      "內部劃轉"
+    ],
+    "positionNote": [
+      "P&L is included in total equity.",
+      "Resultaat telt mee in het totaal.",
+      "El resultado se incluye en el patrimonio.",
+      "持仓盈亏计入总资产",
+      "持倉盈虧計入總資產"
+    ],
+    "chart": [
+      "Chart",
+      "Grafiek",
+      "Gráfico",
+      "图表",
+      "圖表"
+    ],
+    "depth": [
+      "Depth",
+      "Diepte",
+      "Profundidad",
+      "深度",
+      "深度"
+    ],
+    "orderbook": [
+      "Order book",
+      "Orderboek",
+      "Libro de órdenes",
+      "订单簿",
+      "訂單簿"
+    ],
+    "quantity": [
+      "Quantity",
+      "Aantal",
+      "Cantidad",
+      "数量",
+      "數量"
+    ],
+    "cumulative": [
+      "Total",
+      "Totaal",
+      "Total",
+      "累计",
+      "累計"
+    ],
+    "mark": [
+      "Mark price",
+      "Markeerprijs",
+      "Precio de marca",
+      "标记价格",
+      "標記價格"
+    ],
+    "funding": [
+      "Funding rate",
+      "Fundingtarief",
+      "Financiación",
+      "资金费率",
+      "資金費率"
+    ],
+    "high": [
+      "24h high",
+      "24u hoog",
+      "Máx. 24 h",
+      "24h 最高",
+      "24h 最高"
+    ],
+    "low": [
+      "24h low",
+      "24u laag",
+      "Mín. 24 h",
+      "24h 最低",
+      "24h 最低"
+    ],
+    "open": [
+      "Open",
+      "Openen",
+      "Abrir",
+      "开仓",
+      "開倉"
+    ],
+    "close": [
+      "Close",
+      "Sluiten",
+      "Cerrar",
+      "平仓",
+      "平倉"
+    ],
+    "isolated": [
+      "Isolated",
+      "Geïsoleerd",
+      "Aislado",
+      "逐仓",
+      "逐倉"
+    ],
+    "limit": [
+      "Limit",
+      "Limiet",
+      "Límite",
+      "限价",
+      "限價"
+    ],
+    "market": [
+      "Market",
+      "Markt",
+      "Mercado",
+      "市价",
+      "市價"
+    ],
+    "orderPrice": [
+      "Order price",
+      "Orderprijs",
+      "Precio de orden",
+      "委托价格",
+      "委託價格"
+    ],
+    "size": [
+      "Order size",
+      "Ordergrootte",
+      "Cantidad",
+      "委托数量",
+      "委託數量"
+    ],
+    "estimate": [
+      "Est. margin",
+      "Geschatte marge",
+      "Margen estimado",
+      "预估保证金",
+      "預估保證金"
+    ],
+    "long": [
+      "Long",
+      "Long",
+      "Largo",
+      "做多",
+      "做多"
+    ],
+    "short": [
+      "Short",
+      "Short",
+      "Corto",
+      "做空",
+      "做空"
+    ],
+    "positions": [
+      "Positions (1)",
+      "Posities (1)",
+      "Posiciones (1)",
+      "持仓 (1)",
+      "持倉 (1)"
+    ],
+    "orders": [
+      "Open orders (0)",
+      "Open orders (0)",
+      "Órdenes abiertas (0)",
+      "当前委托 (0)",
+      "當前委託 (0)"
+    ],
+    "history": [
+      "History",
+      "Geschiedenis",
+      "Historial",
+      "历史记录",
+      "歷史紀錄"
+    ],
+    "entry": [
+      "Entry price",
+      "Instapprijs",
+      "Precio de entrada",
+      "开仓均价",
+      "開倉均價"
+    ],
+    "direction": [
+      "Side",
+      "Richting",
+      "Dirección",
+      "方向",
+      "方向"
+    ],
+    "settings": [
+      "Preferences",
+      "Voorkeuren",
+      "Preferencias",
+      "偏好设置",
+      "偏好設定"
+    ],
+    "profile": [
+      "Profile",
+      "Profiel",
+      "Perfil",
+      "个人资料",
+      "個人資料"
+    ],
+    "language": [
+      "Language",
+      "Taal",
+      "Idioma",
+      "语言",
+      "語言"
+    ],
+    "currency": [
+      "Currency",
+      "Valuta",
+      "Moneda",
+      "计价货币",
+      "計價貨幣"
+    ],
+    "appearance": [
+      "Appearance",
+      "Weergave",
+      "Apariencia",
+      "外观",
+      "外觀"
+    ],
+    "notifications": [
+      "Notifications",
+      "Meldingen",
+      "Notificaciones",
+      "通知",
+      "通知"
+    ],
+    "colors": [
+      "Color preferences",
+      "Kleurvoorkeuren",
+      "Preferencias de color",
+      "涨跌颜色",
+      "漲跌顏色"
+    ],
+    "timezone": [
+      "Chart time zone",
+      "Tijdzone grafiek",
+      "Zona horaria del gráfico",
+      "图表时区",
+      "圖表時區"
+    ],
+    "haptics": [
+      "Haptic feedback",
+      "Trilfeedback",
+      "Respuesta háptica",
+      "触感反馈",
+      "觸覺回饋"
+    ],
+    "light": [
+      "Light",
+      "Licht",
+      "Claro",
+      "浅色",
+      "淺色"
+    ],
+    "selectLanguage": [
+      "Choose your language",
+      "Kies je taal",
+      "Elige tu idioma",
+      "选择语言",
+      "選擇語言"
+    ],
+    "languageNote": [
+      "Your preference follows you across SKY.",
+      "Je taalkeuze geldt overal in SKY.",
+      "Tu preferencia se aplica en todo SKY.",
+      "此设置应用于 SKY 所有页面",
+      "此設定適用於 SKY 所有頁面"
+    ],
+    "preview": [
+      "Language preview",
+      "Taalvoorbeeld",
+      "Vista previa del idioma",
+      "语言预览",
+      "語言預覽"
+    ],
+    "demoFooter": [
+      "Demo environment · Illustrative prices",
+      "Demo-omgeving · Voorbeeldkoersen",
+      "Entorno demo · Precios ilustrativos",
+      "模拟环境 · 示例行情",
+      "模擬環境 · 範例行情"
+    ],
+    "day": [
+      "1D",
+      "1D",
+      "1D",
+      "1日",
+      "1日"
+    ],
+    "week": [
+      "7D",
+      "7D",
+      "7D",
+      "7日",
+      "7日"
+    ],
+    "month": [
+      "30D",
+      "30D",
+      "30D",
+      "30日",
+      "30日"
+    ],
+    "min15": [
+      "15m",
+      "15m",
+      "15m",
+      "15分",
+      "15分"
+    ],
+    "hour": [
+      "1h",
+      "1u",
+      "1h",
+      "1小时",
+      "1小時"
+    ],
+    "hour4": [
+      "4h",
+      "4u",
+      "4h",
+      "4小时",
+      "4小時"
+    ],
+    "selected": [
+      "Selected",
+      "Geselecteerd",
+      "Seleccionado",
+      "已选择",
+      "已選擇"
+    ],
+    "save": [
+      "Save preferences",
+      "Voorkeuren opslaan",
+      "Guardar preferencias",
+      "保存偏好",
+      "儲存偏好"
+    ],
+    "mock": [
+      "Preview",
+      "Voorbeeld",
+      "Vista previa",
+      "设计预览",
+      "設計預覽"
+    ],
+    "priceUnit": [
+      "Price (USDT)",
+      "Koers (USDT)",
+      "Precio (USDT)",
+      "价格 (USDT)",
+      "價格 (USDT)"
+    ],
+    "qtyUnit": [
+      "Size (BTC)",
+      "Aantal (BTC)",
+      "Cantidad (BTC)",
+      "数量 (BTC)",
+      "數量 (BTC)"
+    ],
+    "account": [
+      "Account",
+      "Account",
+      "Cuenta",
+      "账户",
+      "帳戶"
+    ],
+    "welcome": [
+      "Welcome to SKY",
+      "Welkom bij SKY",
+      "Bienvenido a SKY",
+      "欢迎来到 SKY",
+      "歡迎來到 SKY"
+    ],
+    "more": [
+      "More",
+      "Meer",
+      "Más",
+      "更多",
+      "更多"
+    ]
+  },
+  "names": {
+    "en": "English",
+    "nl": "Nederlands",
+    "es": "Español",
+    "zh-CN": "简体中文",
+    "zh-TW": "繁體中文"
+  }
+}
