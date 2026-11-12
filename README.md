@@ -7,8 +7,8 @@ reach the app without a rebuild.
 ## Build
 
 GitHub Actions builds an **unsigned** `SKY.ipa` on every push to `main`
-(or run it by hand: Actions → Build IPA → Run workflow). Download it from the
-run's **Artifacts** section.
+(or run it by hand: Actions → Build IPA → Run workflow). Download it from
+https://github.com/Shinkai08/SKY/releases/latest/download/SKY.ipa (Releases on the repo page).
 
 Locally on a Mac: `brew install xcodegen && xcodegen generate`, then open
 `SKY.xcodeproj`.
