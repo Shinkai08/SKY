@@ -55,9 +55,11 @@ export type SkyOrderResult = { ok: boolean; id?: number; status?: string; filled
 
 /** True while the app is in the foreground. */
 export function useAppActive() {
-  const [active, setActive] = useState(AppState.currentState === 'active')
+  // Only "background" pauses work: "inactive" is a transition on iOS, and a
+  // browser preview may report nothing at first.
+  const [active, setActive] = useState(AppState.currentState !== 'background')
   useEffect(() => {
-    const sub = AppState.addEventListener('change', s => setActive(s === 'active'))
+    const sub = AppState.addEventListener('change', s => setActive(s !== 'background'))
     return () => sub.remove()
   }, [])
   return active
