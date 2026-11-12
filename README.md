@@ -1,56 +1,37 @@
-# Welcome to your Expo app 👋
+# SKY · Skyline Exchange — iPhone app
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Native iOS app for [sky.shinkaicc.com](https://sky.shinkaicc.com), built with
+React Native + Expo (SDK 58, TypeScript). It talks to the same `/api/v1`
+backend as the website, with demo (simulated) funds only.
 
-## Get started
+## Download
 
-1. Install dependencies
+Every push to `main` builds an **unsigned** IPA on GitHub Actions:
 
-   ```bash
-   npm install
-   ```
+**https://github.com/Shinkai08/SKY/releases/latest/download/SKY.ipa**
 
-2. Start the app
+Install on Windows with a free Apple ID:
 
-   ```bash
-   npx expo start
-   ```
+1. Install iTunes (from apple.com, not the Microsoft Store) and Sideloadly.
+2. Connect the iPhone by cable, open Sideloadly, drop in `SKY.ipa`, enter your Apple ID, Start.
+3. iPhone: Settings → General → VPN & Device Management → trust your Apple ID.
+   iOS 16+: Settings → Privacy & Security → Developer Mode → on.
 
-In the output, you'll find options to open the app in a
+Free Apple ID signatures expire after 7 days; re-sign with Sideloadly.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## What's inside
 
-You can start developing by editing the files inside the **src/app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- Native tab bar (Home · Markets · Trade · Games · Assets), stacks with large titles and swipe-back, SF Symbols, haptics, Face ID lock.
+- Markets, perpetual and spot trading (grouped order book, candles, positions with TP/SL, margin and leverage tools), assets and deposits,
+  VIP, community, profiles, predictions, Crash and 7-seat Blackjack with in-app fairness checks.
+- `src/web/` is copied from the website (strings, fee tables, market hooks) by `node scripts/sync-web.mjs`.
 
-## Get a fresh project
-
-When you're ready, run:
+## Develop
 
 ```bash
-npm run reset-project
+npm install
+npx expo start          # scan the QR code with Expo Go on the iPhone
+npx tsc --noEmit && npx jest
 ```
 
-This command will move the starter code to the **example** directory and create a blank **src/app** directory where you can start developing.
-
-### Other setup steps
-
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Point the app at another server with `EXPO_PUBLIC_SKY_URL=https://… npx expo start`.

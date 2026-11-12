@@ -1,0 +1,68 @@
+name: Build IPA
+
+# Builds an unsigned SKY.ipa on a GitHub macOS runner from this Expo app
+# (expo prebuild → CocoaPods → xcodebuild archive), then publishes it as the
+# "ipa" release so it can be downloaded without signing in:
+#   https://github.com/<owner>/<repo>/releases/latest/download/SKY.ipa
+# Sign and install it yourself (e.g. Sideloadly with your Apple ID).
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  ipa:
+    runs-on: macos-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Check
+        run: |
+          npx tsc --noEmit
+          npx jest --ci
+
+      - name: Generate the iOS project
+        run: npx expo prebuild --platform ios --clean
+
+      - name: Build (unsigned)
+        run: |
+          set -o pipefail
+          xcodebuild archive \
+            -workspace ios/SKY.xcworkspace -scheme SKY -configuration Release \
+            -sdk iphoneos -destination 'generic/platform=iOS' \
+            -archivePath build/SKY.xcarchive \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" | tail -n 200
+
+      - name: Package SKY.ipa
+        run: |
+          mkdir -p out/Payload
+          cp -R build/SKY.xcarchive/Products/Applications/SKY.app out/Payload/
+          cd out && zip -qry SKY.ipa Payload
+          ls -lh SKY.ipa
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: SKY-ipa
+          path: out/SKY.ipa
+          retention-days: 30
+
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete ipa --yes --cleanup-tag || true
+          gh release create ipa out/SKY.ipa --latest \
+            --title "SKY iOS build ${{ github.run_number }}" \
+            --notes "Unsigned IPA of the native SKY app, built from ${GITHUB_SHA::7}. Install with Sideloadly (see README)."
