@@ -44,15 +44,12 @@ struct SpotPage: View {
                     .padding(.horizontal, 6).padding(.top, 6).padding(.bottom, 2)
                     .background(RoundedRectangle(cornerRadius: 8).fill(pal.surface))
                 }
-                HStack(alignment: .top, spacing: 8) {
+                Columns(ratios: [1.15, 1], spacing: 8) {
                     form(snap, last: last, pd: pd)
-                        .frame(maxWidth: .infinity)
-                        .layoutPriority(1.15)
                     MiniBook(book: book, last: last, up: chg >= 0, rows: 8, lastText: prefs.num(last, pd), sub: nil,
                              qd: max(0, snap?.qtyDec ?? 3), stepOpen: $stepOpen) { p in
                         kind = "limit"; px = String(format: "%.\(pd)f", p)
                     }
-                    .frame(maxWidth: .infinity)
                 }
                 .padding(8)
                 .background(RoundedRectangle(cornerRadius: 8).fill(pal.surface))

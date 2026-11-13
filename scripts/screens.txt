@@ -18,3 +18,5 @@ predict -cover predict
 games -cover games
 crash -cover crash
 blackjack -cover blackjack
+trade-chart -screen trade-chart
+home-en -screen home -lang en

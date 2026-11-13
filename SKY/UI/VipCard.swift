@@ -43,9 +43,11 @@ func tierName(_ level: Int, _ prefs: Prefs) -> String { level == 0 ? prefs.t("re
 private extension View {
     /// Place text so its baseline sits at (x, y) — the CSS translateY(-.86em) on a 1em line box.
     func baselineAt(_ x: CGFloat, _ y: CGFloat) -> some View {
-        self.fixedSize()
-            .alignmentGuide(.top) { $0[.firstTextBaseline] }
-            .alignmentGuide(.leading) { $0[.leading] }
+        // A zero-size anchor at (x, y); the text hangs off it by its baseline, so it never changes the card's layout box.
+        Color.clear.frame(width: 0, height: 0)
+            .overlay(alignment: .bottomLeading) {
+                self.fixedSize().alignmentGuide(.bottom) { $0[.firstTextBaseline] }
+            }
             .offset(x: x, y: y)
     }
 }

@@ -39,7 +39,8 @@ struct RootView: View {
                 .environment(session)
                 .environment(router)
                 .environment(\.pal, prefs.pal)
-                .preferredColorScheme(prefs.dark ? .dark : .light)
+                // Black headers (auth sheet, privacy bar) need light status-bar text.
+                .preferredColorScheme([.login, .register, .privacy].contains(cover) ? .dark : prefs.dark ? .dark : .light)
         }
     }
 

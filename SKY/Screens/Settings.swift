@@ -531,6 +531,33 @@ struct PrivacySettings: View {
     }
 }
 
+/// Fixed-ratio columns (CSS grid "1.15fr 1fr"): each child gets its share of the width.
+struct Columns: Layout {
+    var ratios: [CGFloat]
+    var spacing: CGFloat = 8
+    func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
+        let w = proposal.width ?? 360
+        let widths = share(w, subviews.count)
+        var h: CGFloat = 0
+        for (i, v) in subviews.enumerated() { h = max(h, v.sizeThatFits(ProposedViewSize(width: widths[i], height: nil)).height) }
+        return CGSize(width: w, height: h)
+    }
+    func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
+        let widths = share(bounds.width, subviews.count)
+        var x = bounds.minX
+        for (i, v) in subviews.enumerated() {
+            v.place(at: CGPoint(x: x, y: bounds.minY), proposal: ProposedViewSize(width: widths[i], height: nil))
+            x += widths[i] + spacing
+        }
+    }
+    private func share(_ w: CGFloat, _ n: Int) -> [CGFloat] {
+        let r = (0..<n).map { $0 < ratios.count ? ratios[$0] : 1 }
+        let total = r.reduce(0, +)
+        let avail = max(0, w - spacing * CGFloat(max(0, n - 1)))
+        return r.map { avail * $0 / total }
+    }
+}
+
 /// Wrapping row layout (flex-wrap).
 struct FlowWrap: Layout {
     var spacing: CGFloat = 8

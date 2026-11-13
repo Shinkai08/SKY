@@ -44,13 +44,16 @@ final class Prefs {
             table = strings
         }
         if Demo.on {
-            let args = ProcessInfo.processInfo.arguments
-            if let i = args.firstIndex(of: "-theme"), i + 1 < args.count { dark = args[i + 1] != "light" }
-            if let i = args.firstIndex(of: "-lang"), i + 1 < args.count { lang = args[i + 1] }
+            // Screenshots: every launch starts from the same defaults and nothing is saved.
+            dark = Demo.arg("-theme") != "light"
+            redUp = false
+            hideBalance = false
+            lang = Demo.arg("-lang") ?? "zh-CN"
         }
     }
 
     private func save() {
+        guard !Demo.on else { return }
         let d = UserDefaults.standard
         d.set(dark ? "dark" : "light", forKey: "sky.theme")
         d.set(redUp ? "red-up" : "green-up", forKey: "sky.updown")
