@@ -47,8 +47,9 @@ struct WebView: UIViewRepresentable {
 
     func updateUIView(_ uiView: WKWebView, context: Context) {}
 
-    final class Coordinator: NSObject, WKNavigationDelegate, WKUIDelegate {
+    final class Coordinator: NSObject, WKNavigationDelegate, WKUIDelegate, WKDownloadDelegate {
         weak var web: WKWebView?
+        private var downloads: [ObjectIdentifier: URL] = [:]
 
         @objc func reload(_ sender: UIRefreshControl) {
             web?.reload()
@@ -58,6 +59,8 @@ struct WebView: UIViewRepresentable {
         // Stay inside the app for SKY pages; hand everything else to the system.
         func webView(_ webView: WKWebView, decidePolicyFor action: WKNavigationAction,
                      decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+            // <a download> (e.g. "Save image" on the share poster): fetch it, then offer the share sheet.
+            if action.shouldPerformDownload { return decisionHandler(.download) }
             guard let target = action.request.url else { return decisionHandler(.allow) }
             let scheme = target.scheme?.lowercased() ?? ""
             if scheme == "http" || scheme == "https" {
@@ -72,6 +75,44 @@ struct WebView: UIViewRepresentable {
             }
             UIApplication.shared.open(target) // mailto:, tel:, wallet links …
             decisionHandler(.cancel)
+        }
+
+        func webView(_ webView: WKWebView, navigationAction: WKNavigationAction, didBecome download: WKDownload) {
+            download.delegate = self
+        }
+
+        func webView(_ webView: WKWebView, navigationResponse: WKNavigationResponse, didBecome download: WKDownload) {
+            download.delegate = self
+        }
+
+        func download(_ download: WKDownload, decideDestinationUsing response: URLResponse, suggestedFilename: String,
+                      completionHandler: @escaping (URL?) -> Void) {
+            let dir = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString, isDirectory: true)
+            do {
+                try FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
+            } catch {
+                return completionHandler(nil)
+            }
+            let name = suggestedFilename.isEmpty ? "SKY.png" : suggestedFilename
+            let file = dir.appendingPathComponent(name)
+            downloads[ObjectIdentifier(download)] = file
+            completionHandler(file)
+        }
+
+        func downloadDidFinish(_ download: WKDownload) {
+            guard let file = downloads.removeValue(forKey: ObjectIdentifier(download)) else { return }
+            // An image is shared as a picture so the sheet offers "Save Image" to Photos.
+            let item: Any = UIImage(contentsOfFile: file.path) ?? file
+            let sheet = UIActivityViewController(activityItems: [item], applicationActivities: nil)
+            if let pop = sheet.popoverPresentationController, let web {
+                pop.sourceView = web
+                pop.sourceRect = CGRect(x: web.bounds.midX, y: web.bounds.midY, width: 1, height: 1)
+            }
+            present(sheet) {}
+        }
+
+        func download(_ download: WKDownload, didFailWithError error: Error, resumeData: Data?) {
+            downloads.removeValue(forKey: ObjectIdentifier(download))
         }
 
         // target=_blank: open SKY links in place, others in Safari.
@@ -109,12 +150,12 @@ struct WebView: UIViewRepresentable {
             present(alert) { completionHandler(false) }
         }
 
-        private func present(_ alert: UIAlertController, fallback: @escaping () -> Void) {
+        private func present(_ controller: UIViewController, fallback: @escaping () -> Void) {
             let root = UIApplication.shared.connectedScenes.compactMap { ($0 as? UIWindowScene)?.keyWindow?.rootViewController }.first
             guard let root else { return fallback() }
             var top = root
             while let next = top.presentedViewController { top = next }
-            top.present(alert, animated: true)
+            top.present(controller, animated: true)
         }
     }
 }

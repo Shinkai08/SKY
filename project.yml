@@ -29,3 +29,4 @@ targets:
         INFOPLIST_KEY_ITSAppUsesNonExemptEncryption: NO
         INFOPLIST_KEY_NSCameraUsageDescription: "Scan SKY QR codes and upload profile photos."
         INFOPLIST_KEY_NSPhotoLibraryUsageDescription: "Choose a profile photo."
+        INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription: "Save SKY share posters to your photos."
