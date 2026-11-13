@@ -38,7 +38,7 @@ enum CardTier: String, CaseIterable {
     }
 }
 
-func tierName(_ level: Int, _ t: (String) -> String) -> String { level == 0 ? t("regular") : "VIP \(level)" }
+func tierName(_ level: Int, _ prefs: Prefs) -> String { level == 0 ? prefs.t("regular") : "VIP \(level)" }
 
 private extension View {
     /// Place text so its baseline sits at (x, y) — the CSS translateY(-.86em) on a 1em line box.
@@ -95,7 +95,7 @@ struct JoyCard: View {
             }
             .overlay(alignment: .topTrailing) {
                 if let level {
-                    Text(tierName(level, prefs.t))
+                    Text(tierName(level, prefs))
                         .font(.custom("Arial-BoldMT", fixedSize: 2.2 * u))
                         .foregroundColor(tint)
                         .padding(.horizontal, 1.6 * u).padding(.vertical, 0.9 * u)

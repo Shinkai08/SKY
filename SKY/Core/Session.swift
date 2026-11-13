@@ -81,15 +81,15 @@ final class Session {
 
     // MARK: orders
 
-    func place(_ body: [String: Any]) async -> (ok: Bool, reason: String) {
+    func place(_ body: [String: Any]) async -> (ok: Bool, reason: String, json: JSON) {
         do {
             let r = try await API.shared.post("/order", body)
             await refresh()
-            return (r["ok"].bool, r["reason"].string)
+            return (r["ok"].bool, r["reason"].string, r)
         } catch let e as APIError {
-            return (false, e.code)
+            return (false, e.code, JSON(nil))
         } catch {
-            return (false, "service_unavailable")
+            return (false, "service_unavailable", JSON(nil))
         }
     }
 

@@ -129,8 +129,8 @@ struct Snapshot {
         open = j["open"].double; high = j["high"].double; low = j["low"].double
         volBase = j["volBase"].double; volUsdt = j["volUsdt"].double
         funding = j["funding"].double; nextFunding = j["nextFunding"].double
-        bids = j["bids"].array.map { ($0[0].double, $0[1].double) }
-        asks = j["asks"].array.map { ($0[0].double, $0[1].double) }
+        bids = j["bids"].array.map { (p: $0[0].double, q: $0[1].double) }
+        asks = j["asks"].array.map { (p: $0[0].double, q: $0[1].double) }
         trades = j["trades"].array.map(SkyTrade.init)
         tradeCount = j["tradeCount"].int
     }

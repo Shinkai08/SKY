@@ -1,4 +1,4 @@
-import SwiftUI
+﻿import SwiftUI
 
 // Temporary pages; each is replaced by its real port.
 
@@ -27,11 +27,6 @@ struct StubCover: View {
     }
 }
 
-struct MarketsPage: View { var body: some View { StubPage(name: "Markets") } }
-struct SpotPage: View { let sym: String; var body: some View { StubPage(name: "Spot \(sym)") } }
-struct TradePage: View { let sym: String; var body: some View { StubPage(name: "Futures \(sym)") } }
-struct AssetsPage: View { var body: some View { StubPage(name: "Assets") } }
-struct SettingsPage: View { var body: some View { StubPage(name: "Settings") } }
 struct VipPage: View { var body: some View { StubPage(name: "VIP") } }
 struct CommunityPage: View { let initial: Int?; var body: some View { StubPage(name: "Community") } }
 struct ProfilePage: View { let id: Int; var body: some View { StubPage(name: "Profile \(id)") } }

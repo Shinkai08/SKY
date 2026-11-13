@@ -25,7 +25,7 @@ struct HomePage: View {
             while !Task.isCancelled {
                 if let ms = try? await API.shared.get("/sky/markets") {
                     let rows = ms.array
-                    skyStats = (rows.count, rows.reduce(0) { $0 + $1["trades"].int })
+                    skyStats = (n: rows.count, trades: rows.reduce(0) { $0 + $1["trades"].int })
                 }
                 try? await Task.sleep(nanoseconds: 5_000_000_000)
             }
