@@ -20,3 +20,4 @@ crash -cover crash
 blackjack -cover blackjack
 trade-chart -screen trade-chart
 home-en -screen home -lang en
+update -screen home -update

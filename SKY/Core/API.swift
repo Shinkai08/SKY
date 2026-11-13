@@ -149,8 +149,11 @@ final class DemoProtocol: URLProtocol {
         guard let url = request.url else { return }
         var status = 200
         var body = Data("{\"ok\":true}".utf8)
-        if ProcessInfo.processInfo.arguments.contains("-loggedout") && (url.path == "/api/v1/me" || url.path == "/api/v1/account") {
+        let args = ProcessInfo.processInfo.arguments
+        if args.contains("-loggedout") && (url.path == "/api/v1/me" || url.path == "/api/v1/account") {
             status = 401; body = Data("{\"error\":\"unauthorized\"}".utf8)
+        } else if url.path == "/api/v1/app/version" && !args.contains("-update") {
+            body = Data("{\"enabled\":false}".utf8)
         } else if request.httpMethod == nil || request.httpMethod == "GET" {
             var bare = URLComponents(url: url, resolvingAgainstBaseURL: false)
             bare?.query = nil

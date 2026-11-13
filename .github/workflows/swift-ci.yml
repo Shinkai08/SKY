@@ -58,7 +58,7 @@ jobs:
         run: |
           set -o pipefail
           xcodebuild build-for-testing -project SKY.xcodeproj -scheme SKY \
-            -destination "id=$UDID" -derivedDataPath build/dd 2>&1 | tee build.log | grep -E "error:|warning: .*(deprecated|never)|BUILD" || true
+            -destination "id=$UDID" -derivedDataPath build/dd CURRENT_PROJECT_VERSION=${{ github.run_number }} 2>&1 | tee build.log | grep -E "error:|warning: .*(deprecated|never)|BUILD" || true
           grep -q "TEST BUILD SUCCEEDED" build.log
 
       - name: Unit tests
@@ -97,6 +97,7 @@ jobs:
           set -o pipefail
           xcodebuild archive -project SKY.xcodeproj -scheme SKY -configuration Release \
             -sdk iphoneos -destination 'generic/platform=iOS' -archivePath build/SKY.xcarchive \
+            CURRENT_PROJECT_VERSION=${{ github.run_number }} \
             CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" 2>&1 | tee archive.log | grep -E "error:|ARCHIVE" || true
           grep -q "ARCHIVE SUCCEEDED" archive.log
           mkdir -p out/Payload
@@ -108,7 +109,7 @@ jobs:
         if: always()
         run: |
           {
-            echo "run ${{ github.run_number }} ${GITHUB_SHA::7} finished $(date -u)"
+            echo "run ${{ github.run_number }} ${GITHUB_SHA::7} finished $(date -u) · app build number ${{ github.run_number }}"
             echo "--- build errors ---"
             grep -E "error:" build.log 2>/dev/null | sort -u | head -n 200 || true
             echo "--- archive errors ---"
