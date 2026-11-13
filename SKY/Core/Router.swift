@@ -42,6 +42,7 @@ final class Router {
     var cover: Cover?
     var coverHistory: [Cover] = []
     var meOpen = false
+    var giftOpen = false
     /// Bumped on every navigation so pages scroll back to the top.
     var serial = 0
     /// One-shot hint for the Me drawer (e.g. open the coupon page).

@@ -53,7 +53,7 @@ enum PosterRenderer {
 
     /// 1080×1620 poster drawn like the website's canvas.
     static func render(_ p: PosterPosition, nick: String, avatar: String, photo: UIImage?, userId: Int, lang: String,
-                       t: (String) -> String, num: (Double, Int) -> String) -> UIImage {
+                       t: @escaping (String) -> String, num: @escaping (Double, Int) -> String) -> UIImage {
         let th = theme(lang)
         let size = CGSize(width: 1080, height: 1620)
         let fmt = UIGraphicsImageRendererFormat()

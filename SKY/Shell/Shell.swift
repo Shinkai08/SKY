@@ -13,6 +13,11 @@ struct RootView: View {
         ZStack {
             pal.bg.ignoresSafeArea()
             page
+                .overlay(alignment: .bottomTrailing) {
+                    if case .community = router.route {
+                        LuckyLauncher { r.giftOpen = true }.padding(.trailing, 12).padding(.bottom, 4)
+                    }
+                }
                 .safeAreaInset(edge: .top, spacing: 0) {
                     if !router.route.trading { TopBar() }
                 }
@@ -24,6 +29,10 @@ struct RootView: View {
             }
         }
         .animation(.easeOut(duration: 0.25), value: router.meOpen)
+        .sheet(isPresented: $r.giftOpen) {
+            LuckyGiftSheet()
+                .environment(prefs).environment(session).environment(router).environment(\.pal, prefs.pal)
+        }
         .fullScreenCover(item: $r.cover) { cover in
             CoverPage(cover: cover)
                 .environment(prefs)
