@@ -42,11 +42,10 @@ struct UpdatePrompt: View {
                     TierBadge(text: "v\(notice["version"].string)")
                 }
                 if !notice["notes"].string.isEmpty {
-                    ScrollView {
-                        Text(notice["notes"].string).font(.inter(13.5)).foregroundColor(pal.ink2).lineSpacing(4)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                    }
-                    .frame(maxHeight: 180)
+                    Text(notice["notes"].string).font(.inter(13.5)).foregroundColor(pal.ink2).lineSpacing(4)
+                        .lineLimit(12)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .fixedSize(horizontal: false, vertical: true)
                 }
                 Button {
                     if let u = URL(string: notice["url"].string) { openURL(u) }
