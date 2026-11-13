@@ -2,31 +2,65 @@ name: SKY
 options:
   bundleIdPrefix: com.skyline
   deploymentTarget:
-    iOS: "15.0"
+    iOS: "17.0"
 targets:
   SKY:
     type: application
     platform: iOS
-    scheme: {}
     sources:
-      - Sources
-      - Assets.xcassets
+      - path: SKY
+        excludes:
+          - "Resources/**"
+      - path: SKY/Resources/Fonts
+        type: folder
+        buildPhase: resources
+      - path: SKY/Resources/Web
+        type: folder
+        buildPhase: resources
+      - path: SKY/Resources/Demo
+        type: folder
+        buildPhase: resources
+      - path: SKY/Resources/strings.json
+        buildPhase: resources
+      - path: SKY/Resources/privacy.json
+        buildPhase: resources
+      - path: SKY/Resources/Assets.xcassets
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.skyline.exchange
-        MARKETING_VERSION: "1.0.0"
+        MARKETING_VERSION: "2.0.0"
         CURRENT_PROJECT_VERSION: "1"
-        TARGETED_DEVICE_FAMILY: "1,2"
+        TARGETED_DEVICE_FAMILY: "1"
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         SWIFT_VERSION: "5.0"
         GENERATE_INFOPLIST_FILE: YES
         INFOPLIST_KEY_CFBundleDisplayName: SKY
         INFOPLIST_KEY_UILaunchScreen_Generation: YES
         INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone: UIInterfaceOrientationPortrait
-        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad: "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
-        INFOPLIST_KEY_UIStatusBarStyle: UIStatusBarStyleLightContent
-        INFOPLIST_KEY_UIUserInterfaceStyle: Dark
         INFOPLIST_KEY_ITSAppUsesNonExemptEncryption: NO
-        INFOPLIST_KEY_NSCameraUsageDescription: "Scan SKY QR codes and upload profile photos."
+        INFOPLIST_KEY_NSCameraUsageDescription: "Scan SKY QR codes and take a profile photo."
         INFOPLIST_KEY_NSPhotoLibraryUsageDescription: "Choose a profile photo."
         INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription: "Save SKY share posters to your photos."
+        INFOPLIST_KEY_NSFaceIDUsageDescription: "Unlock SKY with Face ID."
+  SKYTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - SKYTests
+    dependencies:
+      - target: SKY
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        SWIFT_VERSION: "5.0"
+        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/SKY.app/SKY"
+        BUNDLE_LOADER: "$(TEST_HOST)"
+schemes:
+  SKY:
+    build:
+      targets:
+        SKY: all
+        SKYTests: [test]
+    test:
+      targets:
+        - SKYTests

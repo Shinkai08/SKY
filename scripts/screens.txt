@@ -1,0 +1,20 @@
+# name  launch arguments (after -demo) — one screenshot each in CI
+home -screen home
+home-out -screen home -loggedout
+home-light -screen home -theme light
+markets -screen markets
+spot -screen spot
+trade -screen trade
+assets -screen assets
+settings -screen settings
+vip -screen vip
+community -screen community
+profile -screen profile
+me -me center
+login -cover login
+register -cover register
+privacy -cover privacy
+predict -cover predict
+games -cover games
+crash -cover crash
+blackjack -cover blackjack

@@ -3,3 +3,5 @@ out/
 *.xcodeproj/
 DerivedData/
 .DS_Store
+scripts/.tmp-*
+scripts/icons-preview.html
